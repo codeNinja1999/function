@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REST PARAMETER AND SPREAD OPERATOR</title>
+    </head>
+
+    <script>
+        function sum(a, b) {
+            let c=0;
+            c = a + b;
+            alert("Sum is: " + c);// add only first 2 element. Rest element gather in array
+        }
+
+        function sumAll(...args) {
+            let add = 0;
+            for(let arg of args)
+                add += arg;
+            alert("Sum of all is: " + add);// add all arguments in function
+        }
+         function showName(firstName, secondName, ...title) {
+            alert(firstName + ' ' + secondName);
+            alert(title[0]);// print consult as first element in array.
+            alert(title[1]);// print democracy as second element in array.
+            alert(title[2]);// print ronaldo as third element in array.
+            alert(title[3]);// print messi as fourth element ain array.
+            alert("Length of title is: " + title.length);// total element in array i.e 4
+
+            alert(arguments.length);// 6 i.e total argument in array using inbuilt arguments variable. 
+            alert(arguments[0]);// print Julius first element using arguments variable.
+            alert(arguments[1]);// print caesar second element using arguments variable.
+         }
+
+         function f() {
+            let showArg = () => alert(arguments[0]);
+            showArg();
+        }
+    </script>
+    <body>
+        <script>
+            sum(1, 2, 3, 4, 5);
+            sumAll(1);
+            sumAll(1, 2);
+            sumAll(3 , 5, 9);
+            
+            showName('Julius', 'caesar', 'consult', 'democracy', 'ronaldo', 'messi');
+            showName('nishan', 'thapa');
+            
+            f(2);// prove that arrow function don't have arguments object either.
+            let arr1 = [3, 7, 5, 1];
+            let arr2 = [-8, 5, -1, 9];
+            alert(Math.max(...arr1, ...arr2));// 9 print max from both array.
+
+            let merged = [...arr1, ...arr2];
+            alert(merged);// merge two array in one.
+
+            let str = 'HELLO';
+            alert([...str]); // also convert string into array. Only for iterables
+            alert(Array.from(str)); // convert string into array. For array like and iterables.
+
+        </script>
+    </body>
+</html>

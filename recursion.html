@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>Javascript tutorial</title>
+    </head>
+    <script>
+        
+        function sumTo(n) {
+                let sum = 0;
+                for(i=1; i<=n; i++) {
+                    sum = sum + i;  
+                }
+                return sum;
+                
+        }
+        
+        function sumTo2(n) {
+            if(n == 1) {
+                return 1;
+            }
+            else {
+                return (n + sumTo(n-1));
+            }
+
+        }
+
+        function sumTo3(n) {
+            let sum = 0;
+            sum = n*(n+1)/2;
+            alert("The solution using formula:" + sum);// Using formula prin addition of all n n-1 element.
+        }
+        
+
+        function factorial(n) {
+            if(n == 1) {
+                return 1;
+            }
+            else {
+                return (n * factorial(n-1));
+            }
+
+        }
+        
+
+        function factorial(n) {
+            return n ? n * factorial(n-1) : 1
+
+        }
+        function factorial1(n) {
+            let fact = 1;
+            for(i=1; i<=n; i++) {
+                fact = fact * i;
+            }
+            return fact;
+        }
+        
+        function fibonacci(n) {
+            return n <= 1 ? n : fibonacci(n-1) + fibonacci(n-2);
+        }
+
+        function fib(n) {
+            let a = 1;
+            let b = 1;
+            for (i=3; i<=n; i++) {
+                let c = a + b;
+                a = b;
+                b = c;
+            }
+            alert("Fibonacci number using for loop is:" + b);// Using simple algo print nth fibonacci number.
+        }
+        
+        function printList(list) {
+            alert(list.value); // print all the element in list.
+            if(list.next)
+                printList(list.next);
+        }
+
+        function printList1(list) {
+             while(list) {
+                alert(list.value); // print all element in list.
+                list = list.next;    
+            }
+        }
+        
+
+        function printReverseList(list) {
+            if(list.next)
+                printReverseList(list.next);
+            alert(list.value); // using recursion print list in reverse order i.e 4 3 2 1.
+        }
+
+        function printReverseList1(list) {
+            let arr = [];
+            let temp = list;
+
+            while(temp) {
+                arr.push(temp.value);
+                temp = temp.next;
+            }
+
+            for(let i=arr.length - 1; i>=0; i--) {
+                alert(arr[i]);// using array print list in reverse order as above.
+            }
+
+        }
+
+    </script>
+    <body>
+        <script>
+            
+            alert("The solution using for loop:" + sumTo(5));// Using for loop print addition of n n-1 element.
+            alert("The solution using recursion:" + sumTo2(5));// Using recursion print addition of n n-1 element.
+            sumTo3(5);
+            
+            alert("Factorial of 5 using recursion is:" + factorial(5));// Using recursion factorial is print.
+            alert("Factorial of 5 using for loop is:" + factorial1(5));// Using for loop print factorial.
+
+            alert("fibonacci number using recursion is:" + fibonacci(7));// Using recursion nth fibonacci number is print.
+            fib(77);
+            
+
+            let list = {
+                value: 1,
+                next: {
+                    value: 2,
+                    next: {
+                        value: 3,
+                        next: {
+                            value: 4,
+                            next: null
+                        }
+                    }
+                }
+            };
+            
+            printList(list);
+            printList1(list);
+            printReverseList(list);
+            printReverseList1(list);
+
+        </script>
+    </body>
+</html>
